@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Jsonda : A DSL for constructing json-like data sturctures" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Jsonda</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/kmizu/jsonda">View on GitHub</a>
+
+          <h1 id="project_title">Jsonda</h1>
+          <h2 id="project_tagline">A DSL for constructing json-like data sturctures</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/kmizu/jsonda/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/kmizu/jsonda/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>Jsonda - a simple DSL for JSON objects construction.</h1>
+
+<p>This project provides a Jsonda DSL, which can be used to construct JSON object
+easily, in Scala.  The code size of Jsonda is small and it is easy to 
+understand what it does.  Although Jsonda was formerly Jsonic, I was told that
+there is already another Jsonic library in Java by <a href="https://github.com/okapies" class="user-mention">@okapies</a> san.  Then, I renamed
+Jsonic to Jsonda.</p>
+
+<h1>Using with sbt</h1>
+
+<p>If you woule like to use Jsonda with sbt, what you need to do is only
+adding the following lines to your build.sbt.</p>
+
+<div class="highlight">
+<pre><span class="n">resolver</span> <span class="o">+=</span> <span class="s">"kmizu-repo"</span>  <span class="n">at</span> <span class="s">"http://kmizu.github.com/maven/"</span>
+
+<span class="n">libraryDependencies</span> <span class="o">+=</span> <span class="s">"org.onion_lang"</span> <span class="o">%%</span> <span class="s">"jsonda"</span>  <span class="o">%</span> <span class="s">"0.1"</span>
+</pre>
+</div>
+
+
+<h1>For Developer</h1>
+
+<ul>
+<li>By running sbt gen-idea, project definition files for IntelliJ IDEA is generated.</li>
+<li>By running sbt eclipse, project definition files for Scala IDE for Eclipse is generated.</li>
+</ul><h1>Syntax</h1>
+
+<p>Jsonda is very simple DSL for creating JSON objects.  Notations are followings:</p>
+
+<ul>
+<li>object: 
+%{ $key1 :- $value1; $key2 :- $value2; ... }</li>
+<li>array:
+$($value1, $value2, ...)</li>
+<li>primitive: 
+
+<ul>
+<li>number(integer): e.g. 100</li>
+<li>number(double): e.g. 10.5</li>
+<li>string (from BigInt): e.g. 100000000000000000000</li>
+<li>string (from BigDecimal): e.g. 1.123456789</li>
+<li>string: e.g. "Hello, World!"</li>
+<li>boolean: e.g. true </li>
+<li>null: null</li>
+</ul>
+</li>
+</ul><h1>Quick Start</h1>
+
+<p>Here are the way to create JSON using Jsonda:</p>
+
+<div class="highlight">
+<pre><span class="k">import</span> <span class="nn">org.onion_lang.jsonda.Implicits._</span>
+
+<span class="k">val</span> <span class="n">person</span> <span class="k">=</span> <span class="o">%{</span>
+  <span class="-Symbol">'name</span> <span class="o">:-</span> <span class="s">"Kota Mizushima"</span>
+  <span class="-Symbol">'age</span> <span class="o">:-</span> <span class="mi">28</span>
+<span class="o">}</span>
+</pre>
+</div>
+
+
+<p>The type of person is net.liftweb.json.JsonAST.JValue.  If you are familiar with lift-json, you can easily manipulate JSON objects.</p>
+
+<h1>Scaladoc</h1>
+
+<p>Scaladoc is available via the following links:</p>
+
+<ul>
+<li><a href="http://kmizu.github.com/jsonda/api/0.0.2/">Scaladoc(0.0.2)</a></li>
+<li><a href="http://kmizu.github.com/jsonda/api/0.1">Scaladoc(0.1)</a></li>
+</ul><h1>License</h1>
+
+<p>This software is distributed under modified BSD License. See:
+LICENSE.txt</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Jsonda maintained by <a href="https://github.com/kmizu">kmizu</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
