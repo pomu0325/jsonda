@@ -58,23 +58,28 @@ adding the following lines to your build.sbt.</p>
 <li>By running sbt eclipse, project definition files for Scala IDE for Eclipse is generated.</li>
 </ul><h1>Syntax</h1>
 
-<p>Jsonda is very simple DSL for creating JSON objects.  Notations are followings:</p>
+<p>Jsonda is very simple DSL for creating JSON objects.  Notations are followings (Note that $key<code>n</code> and $value<code>n</code> are meta-variables:</p>
 
 <ul>
-<li>object: 
-%{ $key1 :- $value1; $key2 :- $value2; ... }</li>
+<li>object ($key<code>n</code> must be <code>Symbol</code> or <code>String</code>): 
+<pre>
+%{ $key1 :- $value1; $key2 :- $value2; ... }
+</pre>
+</li>
 <li>array:
-$($value1, $value2, ...)</li>
+<pre>
+$($value1, $value2, ...)
+</pre>
+</li>
 <li>primitive: 
-
 <ul>
-<li>number(integer): e.g. 100</li>
-<li>number(double): e.g. 10.5</li>
-<li>string (from BigInt): e.g. 100000000000000000000</li>
-<li>string (from BigDecimal): e.g. 1.123456789</li>
-<li>string: e.g. "Hello, World!"</li>
-<li>boolean: e.g. true </li>
-<li>null: null</li>
+<li>number(integer): <code>100</code></li>
+<li>number(double): <code>10.5</code></li>
+<li>string (converted from BigInt): <code>BigInt(100000000000000000000)</code></li>
+<li>string (converted from BigDecimal): <code>BigDecimal("1.123456789")</code></li>
+<li>string: <code>"Hello, World!"</code></li>
+<li>boolean: <code>true</code> </li>
+<li>null: <code>null</code></li>
 </ul>
 </li>
 </ul><h1>Quick Start</h1>
